@@ -1,21 +1,22 @@
-Caputa solver using KNN and Open CV
+# Caputa solver using KNN and Open CV
 What will do it?
 This system will generete caputa images and then will solve and read the genereted images.
 
-Tools and Libraries
+## Tools and Libraries
 PyTorch: An open-source machine learning framework that provides a seamless path from research to production. NumPy: A library for scientific computing in Python, used for numerical operations on arrays and matrices. Torchvision: A PyTorch library for computer vision tasks such as image classification, object detection, and segmentation. Pillow: A library for handling and manipulating images in Python. OpenCV: A library for computer vision tasks, used for image pre-processing in this project. Matplotlib: A data visualization library in Python, used for creating plots and charts.
 
-Introduction
+## Introduction
 This project aims to explore the use of deep learning techniques, specifically a CNN-BiLSTM model, for solving text-based CAPTCHA tests. The goal is to understand the algorithms that could potentially crack CAPTCHA tests and use this knowledge to enhance CAPTCHA-generating systems and maintain a high level of network security. The CNN-BiLSTM model is chosen for its ability to recognize complicated alphanumeric characters and learn inherent features of text sequences in CAPTCHAs, allowing for accurate predictions on previously unseen CAPTCHAs.
 
-Data Generation
+## Data Generation
 This project uses a custom CAPTCHA generator written in Python to generate data for training and testing a machine learning model. The generator creates images with random alpha-numeric character combinations as labels, and applies random distortions and noise to the images to create a diverse and challenging dataset.
 
-Output:
+## Output:
 This script will generate the CAPTCHA images, save them, and display each image directly in your Jupyter notebook. The display(image) function call from IPython.display is used to show the image within the notebook.
 
 1- First step we should install two pyton libiraries like pillow and numpy and neccessery libiraries
-`
+
+‍‍`
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from random import randint, choice, uniform
@@ -27,10 +28,11 @@ import numpy as np
 from random import randint, choice, uniform
 import string
 import time
-import os`
+import os
+`
 
 2- We need to generete the caputa images
-
+`
 a- define the property of image
 `colors = {
 "black": 0x1c1c1c,
@@ -47,18 +49,19 @@ colors = {
 image_width = 250
 image_height = 70
 font_size = 50
-characters = [5,5]`
-b- to generete afive char text
+characters = [5,5]
 `
+b- to generete afive char text
 `
 def get_text():
 out_string = ""
 for i in range(randint(characters[0], characters[1])):
 out_string += choice(string.ascii_letters + "0123456789")
 return out_string
-c- Draw pixels`
-
-`def draw*pixel(draw, x, y, thickness):
+c- Draw pixels
+`
+`
+def draw*pixel(draw, x, y, thickness):
 if thickness > 1:
 draw.line([(x, y), (x + thickness * ([1, -1][randint(0, 1)]), y + thickness \_ ([1, -1][randint(0, 1)]))], fill=colors["black"], width=thickness)
 else:
