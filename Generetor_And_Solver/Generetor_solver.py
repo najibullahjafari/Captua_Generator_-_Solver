@@ -105,7 +105,7 @@ start = time.time()
 output_dir = "./output/"
 os.makedirs(output_dir, exist_ok=True)
 
-for i in range(int(num_samples)):
+for i in range():
     image = Image.new('RGB', (image_width, image_height))
     draw = ImageDraw.Draw(image)
     draw.rectangle([0, 0, image_width, image_height], fill=colors["white"])
